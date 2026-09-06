@@ -144,9 +144,10 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #232323;
-    color: #6c6c6c;
+    background-color: #ffffff;
+    color: #555555;
     padding: 40px;
+    border-top: 1px solid #e5e5e5;
 }
 
 .footer-container {
@@ -161,7 +162,7 @@ body {
 }
 
 .footer h2 {
-    color: white;
+    color: #111111;
     font-size: 1.1rem;
     margin: 0 0 16px;
 }
@@ -183,15 +184,17 @@ body {
 }
 
 .footer-tags span {
-    border: 1px solid #6c6c6c;
+    border: 1px solid #d1d5db;
+    color: #333333;
     padding: 4px 8px;
+    border-radius: 4px;
 }
 
 .copyright {
     max-width: 1200px;
     margin: 32px auto 0;
     padding-top: 16px;
-    border-top: 1px solid #444;
+    border-top: 1px solid #eeeeee;
 }
 
 @media only screen and (max-width: 600px) {
