@@ -9,8 +9,14 @@ body {
 
 /* Navbar */
 .navbar {
-    padding-top: 10px;
-    padding-bottom: 10px;
+   position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent !important;
+    z-index: 1000;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .navbar-brand {
