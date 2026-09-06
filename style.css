@@ -1,5 +1,4 @@
-/* Custom CSS: ./css/style.css */
-
+/* Desktop Styling */
 .navbar {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -10,14 +9,40 @@
     letter-spacing: -1px;
 }
 
-.nav-link {
+/* Base Setup for Center Links only */
+.navbar-nav .custom-hover {
+    position: relative !important;
+    display: inline-block;
     font-size: 0.85rem;
     letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Blue Text Color ONLY on Hover */
+.navbar-nav .custom-hover:hover {
+    color: #0d6efd !important;
+}
+
+/* Base Underline Setup (Invisible by default) */
+.navbar-nav .custom-hover::after {
+    content: '' !important;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #0d6efd !important;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+/* Show Underline ONLY on Hover */
+.navbar-nav .custom-hover:hover::after {
+    width: 80% !important;
 }
 
 /* Responsive Media Query */
 @media only screen and (max-width: 600px) {
-
     .navbar {
         flex-direction: column;
         font-size: 30px;
@@ -26,19 +51,19 @@
 
     .logo {
         width: 100%;
-        font-size: 2em; /* 80px */
+        font-size: 2em;
         text-align: center;
     }
 
-    .nav-links {
+    .navbar-nav {
         width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-size: 1.5em; /* 60px */
+        font-size: 1.5em;
     }
 
-    .nav-links li {
+    .navbar-nav li {
         margin-top: 10px;
     }
 
