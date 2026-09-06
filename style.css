@@ -1,0 +1,50 @@
+/* Custom CSS: ./css/style.css */
+
+.navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-brand {
+    font-family: sans-serif;
+    letter-spacing: -1px;
+}
+
+.nav-link {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* Responsive Media Query */
+@media only screen and (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        font-size: 30px;
+        padding-top: 15px;
+    }
+
+    .logo {
+        width: 100%;
+        font-size: 2em; /* 80px */
+        text-align: center;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em; /* 60px */
+    }
+
+    .nav-links li {
+        margin-top: 10px;
+    }
+
+    .right-links {
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
+}
