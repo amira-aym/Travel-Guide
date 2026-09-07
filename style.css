@@ -57,23 +57,29 @@ body {
 }
 
 /* Responsive Media Query */
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 600px) {
     .navbar {
+        flex-direction: column;
+        font-size: 30px;
         padding-top: 15px;
     }
 
     .logo {
-        font-size: 1.8em;
+        width: 100%;
+        font-size: 2em;
+        text-align: center;
     }
 
     .navbar-nav {
         width: 100%;
-        text-align: center;
-        padding-top: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
     }
 
     .navbar-nav li {
-        margin-top: 8px;
+        margin-top: 10px;
     }
 
     .right-links {
