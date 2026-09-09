@@ -146,7 +146,151 @@ html {
     color: #212529;
     transform: translateY(-3px);
 }
+/* hotel page */
+/* General Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
+body {
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+/* Header & Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #2563eb;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sign-in {
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.sign-up-btn {
+    text-decoration: none;
+    background-color: #2563eb;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Page Title Section */
+.destinations-section {
+    padding: 40px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    color: #222;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* Cards Layout Grid */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Card Styling */
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ececec;
+}
+
+.card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+}
+
+/* Responsive Grid for Tablets/Mobiles */
+@media (max-width: 900px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+/*  end hotel page */
 /* Footer */
 .footer {
     background-color: #ffffff;
