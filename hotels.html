@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotels - Travel Guide</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Start Navbar -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg bg-white position-sticky top-0 start-0 end-0 border-bottom z-3">
+        <div class="container-fluid px-4">
+
+            <!-- Logo -->
+            <a class="navbar-brand logo fw-bold text-dark fs-3" href="index.html">travel guide</a>
+
+            <!-- Toggler Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Center Links -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link custom-hover fw-semibold px-3 text-dark" href="index.html#destinations">DESTINATIONS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-hover fw-semibold px-3 text-dark" href="index.html#things-to-do">THINGS TO DO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-hover fw-semibold px-3 text-dark" href="index.html#restaurants">RESTAURANTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-hover fw-semibold px-3 text-dark" href="index.html#travel-tips">TRAVEL TIPS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-2 text-dark search-btn" data-bs-toggle="collapse" href="#searchCollapse" role="button" aria-expanded="false" aria-controls="searchCollapse">
+                            <i class="bi bi-search"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Search Input Collapse -->
+                <div class="collapse me-lg-3 my-2 my-lg-0" id="searchCollapse">
+                    <input type="text" class="form-control" placeholder="Type to search...">
+                </div>
+
+                <!-- Right Links -->
+                <div class="d-flex align-items-center right-links gap-3">
+                    <a href="signin.html" class="nav-link auth-link fw-semibold">SIGN IN</a>
+                    <a href="signup.html" class="btn btn-primary btn-sm fw-semibold shadow-sm rounded-pill px-3">SIGN UP</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <main class="py-5 bg-light min-vh-100">
+        <div class="container">
+            <h1 class="text-center fw-bold mb-3 fs-1">Top Hotels & Resorts</h1>
+            <p class="text-center text-muted mb-5">Find the perfect place to stay during your next adventure.</p>
+            
+            <div class="row g-4">
+                <!-- Hotel 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Luxury Hotel">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Grand Resort & Spa</h5>
+                            <small class="text-primary fw-bold d-block mb-2"><i class="bi bi-geo-alt-fill"></i> Maldives</small>
+                            <p class="card-text text-muted">Experience ultimate luxury and relaxation over crystal clear waters.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-success">★★★★★</span>
+                                <span class="fw-bold text-dark">$450 / night</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hotel 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="City Hotel">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Metropolitan Suites</h5>
+                            <small class="text-primary fw-bold d-block mb-2"><i class="bi bi-geo-alt-fill"></i> New York, USA</small>
+                            <p class="card-text text-muted">A modern stay in the heart of the city with breathtaking skyline views.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-success">★★★★☆</span>
+                                <span class="fw-bold text-dark">$220 / night</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hotel 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1542314831-c6a4d140b648?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Boutique Hotel">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Oasis Boutique</h5>
+                            <small class="text-primary fw-bold d-block mb-2"><i class="bi bi-geo-alt-fill"></i> Marrakech, Morocco</small>
+                            <p class="card-text text-muted">Immerse yourself in vibrant local culture in our stylish boutique hotel.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-success">★★★★★</span>
+                                <span class="fw-bold text-dark">$180 / night</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 4 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Beach Resort">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Azure Beach Resort</h5>
+                            <small class="text-primary fw-bold d-block mb-2"><i class="bi bi-geo-alt-fill"></i> Santorini, Greece</small>
+                            <p class="card-text text-muted">Stunning oceanfront views with private pools and exquisite dining.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-success">★★★★★</span>
+                                <span class="fw-bold text-dark">$300 / night</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 5 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Mountain Lodge">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Alpine Lodge</h5>
+                            <small class="text-primary fw-bold d-block mb-2"><i class="bi bi-geo-alt-fill"></i> Swiss Alps, Switzerland</small>
+                            <p class="card-text text-muted">A cozy winter retreat perfect for skiing enthusiasts and nature lovers.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-success">★★★★☆</span>
+                                <span class="fw-bold text-dark">$250 / night</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 6 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Historic Hotel">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">The Heritage Palace</h5>
+                            <small class="text-primary fw-bold d-block mb-2"><i class="bi bi-geo-alt-fill"></i> Rome, Italy</small>
+                            <p class="card-text text-muted">Stay in a centuries-old palace featuring classic Italian architecture.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-success">★★★★★</span>
+                                <span class="fw-bold text-dark">$350 / night</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Start Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h2>Categories</h2>
+                <ul>
+                    <li><a href="index.html#destinations" class="text-decoration-none text-muted">Destination</a></li>
+                    <li><a href="hotels.html" class="text-decoration-none text-muted">Hotels</a></li>
+                    <li><a href="index.html#travel-tips" class="text-decoration-none text-muted">Travel Tips</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2>Travel guide</h2>
+                <ul class="footer-tags-list">
+                    <li>Adventure</li>
+                    <li>CULTURE</li>
+                    <li>FOOD</li>           
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h2>Useful Links</h2>
+                <ul>
+                    <li><a href="index.html#destinations" class="text-decoration-none text-muted">Destination</a></li>
+                    <li><a href="faq.html" class="text-decoration-none text-muted">FAQ</a></li>
+                    <li><a href="support.html" class="text-decoration-none text-muted">Support</a></li>
+                    <li><a href="blog.html" class="text-decoration-none text-muted">Blog</a></li>
+                </ul>
+            </div>
+        </div> <!-- End of footer-container -->
+        <div class="footer-copyright text-center w-100 mt-4 pt-3 border-top">
+            <p class="mb-0">&copy; 2026 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
