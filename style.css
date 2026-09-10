@@ -148,7 +148,7 @@ html {
 
 .home_section a.button {
     display: inline-block;
-    background-color: #95c5f5d0;
+    background-color: #5780fc;
     color: white;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -161,8 +161,8 @@ html {
 }
 
 .home_section a.button:hover {
-    background-color: #f0f0f0;
-    color: #212529;
+    background-color: #3d79d4;
+    color:whitesmoke;
     transform: translateY(-3px);
 }
 /* hotel page */
@@ -177,6 +177,7 @@ html {
 body {
     background-color: #fcfcfc;
     color: #333;
+    overflow-x: hidden;
 }
 
 /* Header & Navbar Styling */
@@ -264,6 +265,11 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     border: 1px solid #ececec;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); 
 }
 
 .card-image {
