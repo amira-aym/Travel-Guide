@@ -43,7 +43,7 @@
     <div class="container d-flex justify-content-center">
         <div class="auth-container text-center">
             <h2 class="fw-bold mb-4">Create an Account</h2>
-            <form>
+            <form id="authForm" novalidate>
                 <div class="mb-3 text-start">
                     <label for="fullName" class="form-label">Full Name</label>
                     <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
@@ -59,6 +59,7 @@
                 <div class="mb-4 text-start">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Create a strong password" required>
+                    <div class="invalid-feedback">Password must be at least 8 characters long and contain at least one special character (e.g., #, @, $).</div>
                 </div>
                 <div class="mb-4 form-check text-start">
                     <input type="checkbox" class="form-check-input" id="terms" required>
@@ -84,5 +85,57 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('authForm');
+            const passwordInput = document.getElementById('password');
+
+            form.addEventListener('submit', function (event) {
+                // Prevent default submission for validation
+                event.preventDefault();
+                event.stopPropagation();
+
+                let isValid = true;
+                
+                // Regular expression for password: at least 8 chars, at least 1 special character
+                const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+
+                if (!passwordRegex.test(passwordInput.value)) {
+                    passwordInput.classList.add('is-invalid');
+                    passwordInput.classList.remove('is-valid');
+                    isValid = false;
+                } else {
+                    passwordInput.classList.remove('is-invalid');
+                    passwordInput.classList.add('is-valid');
+                }
+
+                // Additional check for HTML5 required fields
+                if (!form.checkValidity()) {
+                    isValid = false;
+                }
+                
+                form.classList.add('was-validated');
+
+                if (isValid) {
+                    // form.submit();
+                    alert("Form submitted successfully!");
+                }
+            }, false);
+            
+            // Real-time validation on input
+            passwordInput.addEventListener('input', function() {
+                const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+                if (passwordRegex.test(passwordInput.value)) {
+                    passwordInput.classList.remove('is-invalid');
+                    passwordInput.classList.add('is-valid');
+                } else {
+                    passwordInput.classList.add('is-invalid');
+                    passwordInput.classList.remove('is-valid');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>

@@ -177,7 +177,7 @@ html {
 body {
     background-color: #fcfcfc;
     color: #333;
-    overflow-x: hidden;
+    /* overflow-x: hidden; removed for scrollspy */
 }
 
 /* Header & Navbar Styling */

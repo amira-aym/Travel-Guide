@@ -11,7 +11,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
   </head>
-  <body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="70" tabindex="0">
+  <body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-root-margin="-70px 0px -40%" tabindex="0">
     
     <!-- Start Navbar -->
     <nav id="mainNavbar" class="navbar navbar-expand-lg bg-body position-sticky top-0 start-0 end-0 border-bottom z-3">
@@ -41,6 +41,7 @@
                     <li class="nav-item">
                         <a class="nav-link custom-hover fw-semibold px-3 text-body" href="#travel-tips">TRAVEL TIPS</a>
                     </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link px-2 text-body search-btn" data-bs-toggle="collapse" href="#searchCollapse" role="button" aria-expanded="false" aria-controls="searchCollapse">
                             <i class="bi bi-search"></i>
@@ -304,8 +305,7 @@
         </div>
     </section>
     <!-- Hotels Section -->
-    <main>
-        <section class="destinations-section">
+    <section id="hotels" class="destinations-section">
             <h1 class="section-title"> Hotels</h1>
             
             <div class="cards-container">
@@ -372,7 +372,6 @@
 
             </div>
         </section>
-    </main>
 
     <!-- Start Footer -->
     <footer class="footer">
@@ -382,7 +381,7 @@
             <h2>Categories</h2>
             <ul>
                 <li><a href="index.html#destinations" class="text-decoration-none text-muted">Destination</a></li>
-                <li><a href="hotels.html" class="text-decoration-none text-muted">Hotels</a></li>
+                <li><a href="#hotels" class="text-decoration-none text-muted">Hotels</a></li>
                 <li><a href="index.html#travel-tips" class="text-decoration-none text-muted">Travel Tips</a></li>
             </ul>
         </div>
