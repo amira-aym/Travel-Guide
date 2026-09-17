@@ -35,4 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (darkModeToggle) darkModeToggle.title = 'Dark Mode';
         }
     }
+
+    // Fix for Offcanvas Auto-Close without breaking navigation
+    const navLinks = document.querySelectorAll('.offcanvas-body .nav-link');
+    const offcanvasNavbar = document.getElementById('offcanvasNavbar');
+    
+    if (offcanvasNavbar) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (link.getAttribute('href') && link.getAttribute('href').includes('#')) {
+                    if (offcanvasNavbar.classList.contains('show')) {
+                        const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasNavbar) || new bootstrap.Offcanvas(offcanvasNavbar);
+                        bsOffcanvas.hide();
+                    }
+                }
+            });
+        });
+    }
 });
