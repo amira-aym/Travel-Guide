@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="Jave/dark-mode.js"></script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="70" tabindex="0">
@@ -24,42 +25,18 @@
                 <i class="bi bi-airplane-fill text-primary me-2"></i> travel guide
             </a>
 
-            <!-- Toggler Button for Mobile -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Toggler Button for Mobile (Offcanvas) -->
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Navbar Content -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Center Links -->
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link custom-hover fw-semibold px-3 text-body"
-                            href="#destinations">DESTINATIONS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-hover fw-semibold px-3 text-body" href="#things-to-do">THINGS TO
-                            DO</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-hover fw-semibold px-3 text-body" href="#restaurants">RESTAURANTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-hover fw-semibold px-3 text-body" href="#travel-tips">TRAVEL TIPS</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link px-2 text-body search-btn" data-bs-toggle="collapse" href="#searchCollapse"
-                            role="button" aria-expanded="false" aria-controls="searchCollapse">
-                            <i class="bi bi-search"></i>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Search Input Collapse -->
-                <div class="collapse me-lg-3 my-2 my-lg-0" id="searchCollapse">
-                    <input type="text" class="form-control" placeholder="Type to search...">
+            <!-- Offcanvas Navbar Content -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header border-bottom">
+                    <h5 class="offcanvas-title fw-bold d-flex align-items-center" id="offcanvasNavbarLabel">
+                        <i class="bi bi-airplane-fill text-primary me-2"></i> travel guide
+                    </h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <!-- Center Links -->
@@ -77,29 +54,27 @@
                             <a class="nav-link custom-hover fw-semibold px-lg-3 text-body" href="#travel-tips">TRAVEL TIPS</a>
                         </li>
                         
-                        <li class="nav-item">
-                            <a class="nav-link px-lg-2 text-body search-btn" data-bs-toggle="collapse" href="#searchCollapse" role="button" aria-expanded="false" aria-controls="searchCollapse">
-                                <i class="bi bi-search"></i> <span class="d-lg-none ms-2">Search</span>
-                            </a>
-                        </li>
+                        
                     </ul>
 
-                    <!-- Search Input Collapse -->
-                    <div class="collapse me-lg-3 my-2 my-lg-0 position-relative" id="searchCollapse">
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search (e.g. Egypt)..." autocomplete="off">
-                        <ul class="list-group position-absolute w-100 mt-1 d-none shadow-sm" id="searchSuggestions" style="max-height: 200px; overflow-y: auto; z-index: 1050;"></ul>
-                    </div>
+                    <!-- Always Visible Search Form -->
+                    <form class="d-flex mx-lg-3 position-relative my-3 my-lg-0" id="searchForm" style="min-width: 250px;">
+                        <input type="text" class="form-control rounded-pill pe-5 shadow-sm" id="searchInput" placeholder="Search (e.g. Egypt)..." autocomplete="off">
+                        <button type="button" class="btn position-absolute end-0 top-0 bottom-0 rounded-pill px-3 text-primary" id="searchBtn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <ul class="list-group position-absolute w-100 mt-1 d-none shadow-sm" id="searchSuggestions" style="max-height: 200px; overflow-y: auto; z-index: 1050; top: 100%;"></ul>
+                    </form>
 
-                <!-- Right Links -->
-                <div class="d-flex align-items-center right-links gap-3">
-                    <!-- Dark Mode Toggle -->
-                    <button class="btn btn-link nav-link px-2 dark-mode-btn" id="darkModeToggle"
-                        aria-label="Toggle Dark Mode" title="Dark Mode">
-                        <i class="bi bi-moon-fill" id="darkModeIcon"></i>
-                    </button>
-                    <a href="signin.html" class="nav-link auth-link fw-semibold">SIGN IN</a>
-                    <a href="signup.html" class="btn btn-primary btn-sm fw-semibold shadow-sm rounded-pill px-3">SIGN
-                        UP</a>
+                    <!-- Right Links with Spacing -->
+                    <div class="d-flex align-items-center right-links gap-4 mt-3 mt-lg-0 border-top border-lg-0 pt-3 pt-lg-0 ms-lg-3">
+                        <!-- Dark Mode Toggle -->
+                        <button class="btn btn-link nav-link px-2 dark-mode-btn" id="darkModeToggle" aria-label="Toggle Dark Mode" title="Dark Mode" style="color: inherit;">
+                            <i class="bi bi-moon-fill" id="darkModeIcon"></i>
+                        </button>
+                        <a href="signin.html" class="nav-link auth-link fw-semibold">SIGN IN</a>
+                        <a href="signup.html" class="btn btn-primary btn-sm fw-semibold shadow-sm rounded-pill px-4">SIGN UP</a>
+                    </div>
                 </div>
             </div>
 
@@ -511,7 +486,8 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="Jave/dark-mode.js"></script>
+    
+    <script src="search.js"></script>
 </body>
 
 </html>
