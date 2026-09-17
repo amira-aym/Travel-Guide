@@ -57,7 +57,7 @@
                     
 
                     <!-- Right Links with Spacing -->
-                    <div class="d-flex align-items-center right-links gap-2 mt-3 mt-lg-0 border-top border-lg-0 pt-3 pt-lg-0">
+                    <div class="d-flex align-items-center right-links gap-2 mt-3 mt-lg-0 ">
                         <!-- Dark Mode Toggle -->
                         <button class="btn btn-link nav-link px-2 dark-mode-btn" id="darkModeToggle" aria-label="Toggle Dark Mode" title="Dark Mode" style="color: inherit;">
                             <i class="bi bi-moon-fill" id="darkModeIcon"></i>
@@ -189,8 +189,14 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="../Jave/dark-mode.js"></script>
+            <script src="../Jave/dark-mode.js?v=2"></script>
 
       
+
+    <!-- Floating Back Button -->
+    <button onclick="history.back()" class="btn btn-primary rounded-circle shadow-lg position-fixed d-flex align-items-center justify-content-center" style="bottom: 30px; left: 30px; width: 60px; height: 60px; z-index: 1050;" title="Go Back">
+        <i class="bi bi-arrow-left fs-3"></i>
+    </button>
 </body>
+
 </html>

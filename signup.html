@@ -58,8 +58,11 @@
                 </div>
                 <div class="mb-4 text-start">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Create a strong password" required>
-                    <div class="invalid-feedback">Password must be at least 8 characters long and contain at least one special character (e.g., #, @, $).</div>
+                    <div class="input-group has-validation">
+                            <input type="password" class="form-control" id="password" placeholder="Create a strong password" required>
+                            <button class="btn btn-outline-secondary toggle-password" type="button"><i class="bi bi-eye"></i></button>
+                            <div class="invalid-feedback">Password must be at least 8 characters long and contain at least one special character (e.g., #, @, $).</div>
+                        </div>
                 </div>
                 <div class="mb-4 form-check text-start">
                     <input type="checkbox" class="form-check-input" id="terms" required>
@@ -75,9 +78,7 @@
                 <hr class="flex-grow-1">
             </div>
 
-            <button class="btn btn-outline-dark w-100 rounded-pill fw-semibold">
-                <i class="bi bi-google me-2 text-danger"></i> Sign up with Google
-            </button>
+            <button type="button" class="btn btn-outline-dark w-100 rounded-pill fw-semibold" onclick="simulateGoogleLogin(event)"><i class="bi bi-google me-2 text-danger"></i> Sign up with Google</button>
 
             <div class="mt-4">
                 <p class="mb-0 text-muted">Already have an account? <a href="signin.html" class="text-decoration-none fw-bold text-primary">Sign In</a></p>
@@ -137,5 +138,49 @@
         });
     </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtns = document.querySelectorAll('.toggle-password');
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            const icon = this.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            }
+        });
+    });
+});
+</script>
+
+<script>
+    function simulateGoogleLogin(event) {
+        event.preventDefault();
+        const btn = event.currentTarget;
+        
+        // No custom prompt, just simulate immediate login to act like a seamless OAuth
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Authenticating...';
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('loginType', 'google');
+            // We use 'Amira' or 'User' as default since we can't pull real Google data without backend
+            if(!localStorage.getItem('googleName')) {
+                localStorage.setItem('googleName', 'Amira');
+            }
+            window.location.href = 'index.html';
+        }, 1500);
+    }
+</script>
+
 </body>
+
 </html>

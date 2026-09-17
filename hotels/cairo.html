@@ -22,7 +22,7 @@
     </style>
     
     <link rel="stylesheet" href="../style.css">
-    <script src="../Jave/dark-mode.js"></script>
+    <script src="../Jave/dark-mode.js?v=2"></script>
 </head>
 <body class="bg-body">
     <!-- Navbar -->
@@ -69,7 +69,7 @@
                     
 
                     <!-- Right Links with Spacing -->
-                    <div class="d-flex align-items-center right-links gap-2 mt-3 mt-lg-0 border-top border-lg-0 pt-3 pt-lg-0">
+                    <div class="d-flex align-items-center right-links gap-2 mt-3 mt-lg-0 ">
                         <!-- Dark Mode Toggle -->
                         <button class="btn btn-link nav-link px-2 dark-mode-btn" id="darkModeToggle" aria-label="Toggle Dark Mode" title="Dark Mode" style="color: inherit;">
                             <i class="bi bi-moon-fill" id="darkModeIcon"></i>
@@ -122,7 +122,7 @@
                     <hr>
                     <p class="fs-4 fw-bold text-success mb-1">$240 <span class="fs-6 text-muted fw-normal">/ night</span></p>
                     <p class="small text-muted mb-4">Taxes and fees included</p>
-                    <button class="btn btn-primary w-100 py-3 rounded-pill fw-bold">Book Now</button>
+                    <button class="btn btn-primary w-100 py-3 rounded-pill fw-bold" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Now</button>
                 </div>
             </div>
         </div>
@@ -133,6 +133,118 @@
     <button onclick="history.back()" class="btn btn-primary rounded-circle shadow-lg position-fixed d-flex align-items-center justify-content-center" style="bottom: 30px; left: 30px; width: 60px; height: 60px; z-index: 1050;" title="Go Back">
         <i class="bi bi-arrow-left fs-3"></i>
     </button>
+
+    <!-- Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-primary text-white border-0">
+                    <h5 class="modal-title fw-bold" id="bookingModalLabel"><i class="bi bi-calendar-check me-2"></i> Book Your Stay</h5>
+                    <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4" id="bookingFormBody">
+                    <form id="bookingForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Full Name</label>
+                                <input type="text" class="form-control" required placeholder="John Doe">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Email Address</label>
+                                <input type="email" class="form-control" required placeholder="john@example.com">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Check-in Date</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Check-out Date</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">Adults</label>
+                                <select class="form-select">
+                                    <option value="1">1 Adult</option>
+                                    <option value="2" selected>2 Adults</option>
+                                    <option value="3">3 Adults</option>
+                                    <option value="4">4 Adults</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">Children</label>
+                                <select class="form-select">
+                                    <option value="0">0 Children</option>
+                                    <option value="1">1 Child</option>
+                                    <option value="2">2 Children</option>
+                                    <option value="3">3 Children</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">Room Type</label>
+                                <select class="form-select">
+                                    <option value="standard">Standard Room</option>
+                                    <option value="deluxe">Deluxe Room</option>
+                                    <option value="suite">Luxury Suite</option>
+                                </select>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-primary w-100 py-3 fw-bold fs-5 rounded-pill">Confirm Reservation</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookingForm = document.getElementById('bookingForm');
+            const bookingFormBody = document.getElementById('bookingFormBody');
+            if(bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Save booking to localStorage
+                    const checkin = bookingForm.querySelector('input[type="date"]:nth-of-type(1)') ? bookingForm.querySelectorAll('input[type="date"]')[0].value : 'N/A';
+                    const checkout = bookingForm.querySelector('input[type="date"]:nth-of-type(2)') ? bookingForm.querySelectorAll('input[type="date"]')[1].value : 'N/A';
+                    const adults = bookingForm.querySelectorAll('select')[0].value;
+                    const children = bookingForm.querySelectorAll('select')[1].value;
+                    const roomType = bookingForm.querySelectorAll('select')[2].value;
+                    
+                    // Get hotel name from the page title or h1
+                    const hotelName = document.querySelector('h1') ? document.querySelector('h1').innerText : 'Hotel Booking';
+
+                    const booking = {
+                        hotelName: hotelName,
+                        checkin: checkin,
+                        checkout: checkout,
+                        adults: adults,
+                        children: children,
+                        roomType: roomType
+                    };
+
+                    let myBookings = JSON.parse(localStorage.getItem('myBookings') || '[]');
+                    myBookings.push(booking);
+                    localStorage.setItem('myBookings', JSON.stringify(myBookings));
+
+                    bookingFormBody.innerHTML = `
+                        <div class="text-center py-5">
+                            <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                            <h3 class="fw-bold mt-3">Booking Confirmed!</h3>
+                            <p class="text-muted fs-5">Thank you for your reservation. We have sent the details to your email.</p>
+                            <a href="../bookings.html" class="btn btn-outline-primary px-4 rounded-pill mt-3 me-2">View My Bookings</a>
+                            <button type="button" class="btn btn-primary px-4 rounded-pill mt-3" data-bs-dismiss="modal">Done</button>
+                        </div>
+                    `;
+                });
+            }
+        });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

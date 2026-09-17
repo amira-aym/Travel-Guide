@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    <script src="Jave/dark-mode.js"></script>
+    <script src="Jave/dark-mode.js?v=2"></script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="70" tabindex="0">
@@ -67,13 +67,38 @@
                     </form>
 
                     <!-- Right Links with Spacing -->
-                    <div class="d-flex align-items-center right-links gap-2 mt-3 mt-lg-0 border-top border-lg-0 pt-3 pt-lg-0">
+                    <div class="d-flex align-items-center right-links gap-2 mt-3 mt-lg-0 ">
                         <!-- Dark Mode Toggle -->
                         <button class="btn btn-link nav-link px-2 dark-mode-btn" id="darkModeToggle" aria-label="Toggle Dark Mode" title="Dark Mode" style="color: inherit;">
                             <i class="bi bi-moon-fill" id="darkModeIcon"></i>
                         </button>
-                        <a href="signin.html" class="nav-link auth-link fw-semibold">SIGN IN</a>
-                        <a href="signup.html" class="btn btn-primary btn-sm fw-semibold shadow-sm rounded-pill px-4">SIGN UP</a>
+                        
+                        
+                        <!-- Guest Links -->
+                        <div id="guestLinks" class="d-flex align-items-center gap-2">
+                            <a href="signin.html" class="nav-link auth-link fw-semibold">SIGN IN</a>
+                            <a href="signup.html" class="btn btn-primary btn-sm fw-semibold shadow-sm rounded-pill px-4">SIGN UP</a>
+                        </div>
+                        
+                        <!-- User Links (Hidden by default) -->
+                        <div id="userLinks" class="d-flex align-items-center d-none ms-2">
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center fw-semibold text-body p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="https://ui-avatars.com/api/?name=Amira&background=2563eb&color=fff" alt="User" class="rounded-circle me-2 border border-2 border-primary user-avatar" width="36" height="36">
+                                    <span class="d-none d-lg-block user-name">My Account</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-3" style="min-width: 200px;">
+                                    <li><h6 class="dropdown-header">Welcome, <span class="user-first-name">Amira</span>!</h6></li>
+                                    <li><a class="dropdown-item py-2" href="settings.html"><i class="bi bi-person me-2 text-primary"></i> Profile</a></li>
+                                    <li><a class="dropdown-item py-2" href="settings.html"><i class="bi bi-gear me-2 text-secondary"></i> Settings</a></li>
+                                    <li><a class="dropdown-item py-2" href="bookings.html"><i class="bi bi-bag-check me-2 text-success"></i> My Bookings</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item py-2 text-danger fw-bold" href="#" id="signOutBtn"><i class="bi bi-box-arrow-right me-2"></i> Sign Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -487,7 +512,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     
-    <script src="search.js"></script>
+    <script src="search.js?v=2"></script>
 </body>
 
 </html>

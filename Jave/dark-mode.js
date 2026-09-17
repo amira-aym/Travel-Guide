@@ -53,3 +53,72 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const guestLinks = document.getElementById('guestLinks');
+    const userLinks = document.getElementById('userLinks');
+    const signOutBtn = document.getElementById('signOutBtn');
+
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        if (guestLinks) guestLinks.classList.add('d-none');
+        if (guestLinks) guestLinks.classList.remove('d-flex');
+        if (userLinks) userLinks.classList.remove('d-none');
+        if (userLinks) userLinks.classList.add('d-flex');
+    }
+
+    if (signOutBtn) {
+        signOutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.setItem('isLoggedIn', 'false');
+            window.location.reload();
+        });
+    }
+});
+// Auth logic to toggle guest/user links
+document.addEventListener('DOMContentLoaded', () => {
+    const guestLinks = document.getElementById('guestLinks');
+    const userLinks = document.getElementById('userLinks');
+    const signOutBtn = document.getElementById('signOutBtn');
+
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+        if (guestLinks) {
+            guestLinks.classList.add('d-none');
+            guestLinks.classList.remove('d-flex');
+        }
+        if (userLinks) {
+            userLinks.classList.remove('d-none');
+            userLinks.classList.add('d-flex');
+            
+            // Check if Google Login
+            if (localStorage.getItem('loginType') === 'google') {
+                const userAvatars = document.querySelectorAll('.user-avatar');
+                const userNames = document.querySelectorAll('.user-name');
+                const userFirstNames = document.querySelectorAll('.user-first-name');
+                
+                const googleName = localStorage.getItem('googleName') || 'User';
+                const firstLetter = googleName.charAt(0).toUpperCase();
+                
+                userAvatars.forEach(av => {
+                    av.src = "https://ui-avatars.com/api/?name=" + firstLetter + "&background=2563eb&color=fff"; // Normal blue avatar
+                });
+                userNames.forEach(n => n.innerHTML = googleName);
+                userFirstNames.forEach(n => n.innerText = googleName.split(' ')[0]);
+                
+                // Also update settings page email to match the name
+                const settingsEmail = document.getElementById('settingsEmail');
+                if(settingsEmail) {
+                    settingsEmail.value = googleName.split(' ').join('.').toLowerCase() + '@gmail.com';
+                }
+            }
+        }
+    }
+
+    if (signOutBtn) {
+        signOutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.setItem('isLoggedIn', 'false');
+            localStorage.removeItem('loginType');
+            window.location.reload();
+        });
+    }
+});
