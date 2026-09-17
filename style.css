@@ -512,3 +512,9 @@ html, body {
         max-width: 75vw !important;
     }
 }
+
+/* Ensure sign in / sign up text never wraps */
+.right-links .auth-link,
+.right-links .btn {
+    white-space: nowrap !important;
+}
